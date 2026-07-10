@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Macam-Macam Protokol Routing Dynamic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #eef2f7;
+            color: #1a2c3e;
+            line-height: 1.75;
+            padding: 15px 10px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            padding: 25px 20px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            border-left: 6px solid #0077b6;
+            padding-left: 18px;
+            margin-bottom: 20px;
+            color: #023e5f;
+            word-break: break-word;
+        }
+        h2 {
+            font-size: 1.4rem;
+            margin: 35px 0 15px;
+            border-bottom: 2px solid #cbd5e1;
+            color: #0f4c5f;
+            padding-bottom: 6px;
+        }
+        h3 {
+            font-size: 1.15rem;
+            margin: 25px 0 12px;
+            color: #1e6f5c;
+        }
+        h4 {
+            font-size: 1.05rem;
+            margin: 18px 0 8px;
+            color: #1a4b6d;
+        }
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            text-indent: 0.4in;
+        }
+        p.no-indent {
+            text-indent: 0;
+        }
+        ul, ol {
+            margin: 0.75rem 0 1rem 1.8rem;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+        code {
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #b91c1c;
+            word-break: break-word;
+        }
+        i {
+            font-style: italic;
+            color: #0b4a6f;
+        }
+        .protocol-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin: 25px 0;
+            border-left: 5px solid #0077b6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .protocol-card h3 {
+            margin-top: 0;
+            color: #023e5f;
+        }
+        .note-box {
+            background: #f0f7fc;
+            padding: 14px 18px;
+            border-left: 4px solid #ff8c00;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        hr {
+            margin: 30px 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #bfd9f0, transparent);
+        }
+        .footer {
+            font-size: 0.75rem;
+            text-align: center;
+            color: #2c6b84;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 18px 14px; }
+            h1 { font-size: 1.5rem; padding-left: 14px; }
+            h2 { font-size: 1.25rem; }
+            h3 { font-size: 1.05rem; }
+            p { text-indent: 0.2in; }
+            .protocol-card { padding: 14px 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>📋 Macam-Macam <i>Protokol Routing Dynamic</i></h1>
+
+    <p class="no-indent">Seiring dengan perkembangan sejarah jaringan komputer, telah banyak dikembangkan berbagai macam <i>protokol</i> yang termasuk dalam kategori <i>routing dynamic</i>. Setiap <i>protokol</i> memiliki karakteristik, algoritma, dan skenario penggunaan yang berbeda-beda. Pemahaman mendalam tentang masing-masing <i>protokol</i> sangat penting agar seorang <i>network engineer</i> dapat memilih solusi <i>routing</i> yang paling tepat sesuai dengan kebutuhan, skala, dan kompleksitas jaringan yang dikelola. Berikut adalah lima <i>protokol routing dynamic</i> utama yang paling sering diterapkan dalam infrastruktur jaringan modern.</p>
+
+    <hr>
+
+    <!-- ==================== 1. RIP ==================== -->
+    <div class="protocol-card">
+        <h3>1. <i>RIP</i> (<i>Routing Information Protocol</i>)</h3>
+
+        <p><i>RIP</i> merupakan salah satu <i>protokol routing</i> tertua yang masih digunakan hingga saat ini. <i>Protokol</i> ini memberikan informasi <i>routing table</i> berdasarkan <i>router</i> yang terhubung langsung. Selanjutnya, <i>router</i> akan memberikan informasi tersebut ke <i>router</i> berikutnya yang juga terhubung langsung, sehingga informasi menyebar secara bertahap ke seluruh jaringan (<i>hop-by-hop</i>). <i>RIP</i> menggunakan algoritma <i>distance vector</i> dengan metrik utama berupa <i>hop count</i> (jumlah lompatan), di mana batas maksimum yang diizinkan adalah 15 <i>hop</i>. Jika sebuah rute melebihi 15 <i>hop</i>, maka rute tersebut dianggap tidak dapat dijangkau (<i>unreachable</i>).</p>
+
+        <p><i>RIP</i> terbagi menjadi dua versi utama, yaitu <i>RIPv1</i> dan <i>RIPv2</i>, yang masing-masing memiliki karakteristik dan kemampuan yang berbeda:</p>
+
+        <h4><i>RIPv1</i> (<i>RIP</i> versi 1)</h4>
+        <ul>
+            <li><strong>Hanya mendukung <i>routing class-full</i>:</strong> <i>RIPv1</i> tidak mengenali <i>subnet mask</i> sehingga tidak dapat membedakan antara beberapa <i>subnet</i> dari <i>network</i> kelas yang sama. Hal ini menyebabkan keterbatasan dalam pengelolaan alamat <i>IP</i> yang efisien.</li>
+            <li><strong>Tidak ada informasi <i>subnet</i> yang dimasukkan dalam data perbaikan <i>routing</i>:</strong> Karena tidak mendukung <i>subnetting</i>, <i>RIPv1</i> mengabaikan informasi <i>subnet mask</i> saat melakukan <i>update</i>, sehingga berpotensi terjadi kesalahan <i>routing</i> pada jaringan yang menggunakan <i>subnetting</i>.</li>
+            <li><strong>Tidak mendukung <i>VLSM</i> (<i>Variable Length Subnet Mask</i>):</strong> <i>RIPv1</i> tidak mampu menangani penggunaan <i>subnet mask</i> dengan panjang yang bervariasi dalam satu <i>network</i> yang sama, sehingga pemborosan alamat <i>IP</i> sulit dihindari.</li>
+            <li><strong>Adanya fitur perbaikan <i>routing</i> secara <i>broadcast</i>:</strong> <i>RIPv1</i> mengirimkan <i>update routing</i> ke alamat <i>broadcast</i> (255.255.255.255), yang berarti semua perangkat dalam segmen jaringan harus memproses paket tersebut, meskipun tidak menjalankan <i>RIP</i>. Hal ini kurang efisien dari segi penggunaan <i>bandwidth</i> dan sumber daya.</li>
+        </ul>
+
+        <h4><i>RIPv2</i> (<i>RIP</i> versi 2)</h4>
+        <ul>
+            <li><strong>Mendukung <i>routing class-full</i> dan <i>class-less</i>:</strong> <i>RIPv2</i> mampu memahami informasi <i>subnet mask</i>, sehingga dapat mendukung <i>routing</i> yang lebih presisi dan efisien.</li>
+            <li><strong>Informasi <i>subnet</i> dimasukkan dalam data perbaikan <i>routing</i>:</strong> Setiap paket <i>update</i> <i>RIPv2</i> menyertakan <i>subnet mask</i> dari jaringan tujuan, sehingga <i>router</i> penerima dapat membangun <i>routing table</i> yang akurat.</li>
+            <li><strong>Mendukung <i>VLSM</i> (<i>Variable Length Subnet Mask</i>):</strong> Dengan dukungan <i>VLSM</i>, <i>administrator</i> dapat mengalokasikan alamat <i>IP</i> secara lebih fleksibel dan hemat, sesuai dengan kebutuhan jumlah <i>host</i> pada setiap segmen jaringan.</li>
+            <li><strong>Perbaikan <i>routing</i> menggunakan <i>multicast</i>:</strong> <i>RIPv2</i> mengirimkan <i>update</i> ke alamat <i>multicast</i> 224.0.0.9, yang hanya akan diproses oleh perangkat yang memang menjalankan <i>RIPv2</i>. Hal ini jauh lebih efisien dibandingkan metode <i>broadcast</i> pada <i>RIPv1</i>.</li>
+        </ul>
+
+        <p>Secara umum, <i>RIPv2</i> tidak berbeda jauh secara fundamental dengan <i>RIPv1</i>. Perbedaan utama terletak pada informasi tambahan yang dipertukarkan, terutama adanya fitur <i>autentikasi</i> pada <i>RIPv2</i> yang meningkatkan keamanan pertukaran data <i>routing</i>.</p>
+
+        <h4>Kelebihan <i>RIP</i></h4>
+        <ul>
+            <li><strong>Menggunakan metode <i>“Triggered Update”</i>:</strong> Selain <i>update</i> periodik setiap 30 detik, <i>RIP</i> juga mendukung <i>triggered update</i>, yaitu pengiriman <i>update</i> segera ketika terjadi perubahan <i>topologi</i> (misalnya <i>link</i> putus). Hal ini mempercepat proses konvergensi pada situasi tertentu.</li>
+            <li><strong>Memiliki <i>timer</i> untuk pengelolaan <i>routing</i>:</strong> <i>RIP</i> dilengkapi dengan beberapa <i>timer</i>, seperti <i>update timer</i> (30 detik), <i>invalid timer</i> (180 detik), <i>hold-down timer</i>, dan <i>flush timer</i>, yang membantu menjaga kestabilan tabel <i>routing</i>.</li>
+            <li><strong>Konfigurasi yang tidak rumit:</strong> Mengatur <i>routing</i> menggunakan <i>RIP</i> relatif mudah dan memberikan hasil yang cukup dapat diterima untuk jaringan berskala kecil hingga menengah, terutama jika jarang terjadi kegagalan <i>link</i> pada jaringan.</li>
+        </ul>
+    </div>
+
+    <!-- ==================== 2. IGRP ==================== -->
+    <div class="protocol-card">
+        <h3>2. <i>IGRP</i> (<i>Interior Gateway Routing Protocol</i>)</h3>
+
+        <p><i>IGRP</i> adalah sebuah <i>routing protocol</i> yang dikembangkan pada pertengahan tahun 1980-an oleh <i>Cisco Systems Inc.</i> Tujuan utama penciptaan <i>IGRP</i> adalah untuk menyediakan <i>protokol</i> yang lebih kuat, handal, dan <i>scalable</i> untuk <i>routing</i> dalam sebuah <i>autonomous system</i> (sistem otonom), mengingat keterbatasan <i>RIP</i> yang hanya memiliki batas 15 <i>hop</i>. <i>IGRP</i> dirancang untuk mengatasi kelemahan tersebut dengan memberikan batas <i>hop count</i> yang jauh lebih besar serta menggunakan metrik yang lebih komprehensif dalam menentukan jalur terbaik.</p>
+
+        <p>Salah satu keunggulan utama <i>IGRP</i> adalah kemampuannya dalam menggunakan <strong><i>bandwidth</i> dan <i>delay</i></strong> sebagai metrik <i>default</i> untuk menentukan rute terbaik dalam sebuah <i>internetwork</i>. Pendekatan ini disebut dengan <i><strong>Composite Metric</strong></i>, karena menggabungkan beberapa parameter untuk menghasilkan nilai metrik yang lebih akurat mencerminkan kondisi jalur yang sebenarnya. Selain <i>bandwidth</i> dan <i>delay</i>, <i>IGRP</i> juga mempertimbangkan faktor <i><strong>load</strong></i> (beban lalu lintas) dan <i><strong>reliability</strong></i> (keandalan jalur) dalam perhitungan metriknya.</p>
+
+        <p><i>IGRP</i> menggunakan <i>algoritma distance vector</i>, namun dengan pendekatan yang lebih canggih dibandingkan <i>RIP</i>. <i>Routing</i> dilakukan secara matematis berdasarkan jarak (<i>distance</i>) yang telah dihitung dengan mempertimbangkan berbagai variabel. Keputusan mengenai jalur mana yang akan ditempuh tidak hanya berdasarkan jumlah <i>hop</i>, melainkan juga kualitas <i>link</i> yang tersedia.</p>
+
+        <p>Karena <i>protokol</i> ini diciptakan oleh <i>Cisco</i>, maka di dalam kumpulan perintah dasar <i>Cisco IOS</i> terdapat perintah-perintah khusus untuk mengatur dan mengaktifkan <i>IGRP</i>. Beberapa karakteristik teknis <i>IGRP</i> yang penting untuk diketahui adalah:</p>
+        <ul>
+            <li><strong><i>Update routing</i> dilakukan secara <i>broadcast</i> setiap 90 detik:</strong> Sama seperti <i>RIP</i>, <i>IGRP</i> juga mengirimkan <i>update</i> secara periodik, namun dengan interval yang lebih panjang (90 detik) untuk mengurangi konsumsi <i>bandwidth</i>.</li>
+            <li><strong>Mendukung sampai 255 <i>hop count</i>:</strong> Batas maksimum ini jauh lebih besar daripada <i>RIP</i> (15 <i>hop</i>), sehingga <i>IGRP</i> dapat diterapkan pada jaringan yang lebih luas dan kompleks.</li>
+            <li><strong>Menggunakan <i>composite metric</i>:</strong> Metrik gabungan (<i>bandwidth</i>, <i>load</i>, <i>delay</i>, dan <i>reliability</i>) memberikan gambaran yang lebih akurat tentang kualitas jalur dibandingkan metrik tunggal seperti <i>hop count</i>.</li>
+        </ul>
+        <p>Meskipun <i>IGRP</i> kini sudah dianggap <i>legacy</i> (usang) dan digantikan oleh <i>EIGRP</i>, pemahaman tentang <i>IGRP</i> tetap penting untuk memahami evolusi <i>protokol routing</i> di lingkungan <i>Cisco</i>.</p>
+    </div>
+
+    <!-- ==================== 3. OSPF ==================== -->
+    <div class="protocol-card">
+        <h3>3. <i>OSPF</i> (<i>Open Shortest Path First</i>)</h3>
+
+        <p><i>OSPF</i> adalah sebuah <i>routing protocol</i> standar terbuka (<i>open standard</i>) yang telah diaplikasikan oleh sejumlah besar <i>vendor</i> perangkat jaringan, tidak terbatas pada <i>Cisco</i> saja. Jika jaringan yang dikelola adalah jaringan besar dengan ribuan <i>node</i>, maka <i>OSPF</i> sering kali menjadi pilihan utama (bahkan satu-satunya) karena <i>scalability</i> dan performanya yang unggul. <i>OSPF</i> menggunakan <i>algoritma link-state</i> (<i>SPF – Shortest Path First</i>) yang dikembangkan oleh <i>Dijkstra</i>, yang memungkinkan setiap <i>router</i> memiliki peta <i>topologi</i> jaringan secara utuh dan <i>up-to-date</i>.</p>
+
+        <p>Salah satu fitur andalan <i>OSPF</i> adalah kemampuannya dalam melakukan <i><strong>route redistribution</strong></i>, yaitu sebuah layanan penerjemah antar <i>routing protocol</i>. Fitur ini memungkinkan <i>OSPF</i> untuk bertukar informasi <i>routing</i> dengan <i>protokol</i> lain seperti <i>RIP</i>, <i>EIGRP</i>, atau <i>BGP</i>, sehingga sangat berguna dalam lingkungan jaringan <i>multi-vendor</i> atau saat migrasi <i>protokol</i>.</p>
+
+        <p><i>OSPF</i> hanya mendukung <i>routing IP</i> (khusus untuk <i>IPv4</i> pada <i>OSPFv2</i> dan <i>IPv6</i> pada <i>OSPFv3</i>). <i>Update routing</i> pada <i>OSPF</i> tidak dikirim secara periodik seperti <i>distance vector</i>, melainkan dilakukan secara <i><strong>flooded</strong></i> (disebarkan ke seluruh area) hanya ketika terjadi perubahan <i>topologi</i> jaringan. Hal ini membuat <i>OSPF</i> sangat efisien dalam penggunaan <i>bandwidth</i> pada kondisi stabil.</p>
+
+        <h4>Kelebihan <i>OSPF</i></h4>
+        <ul>
+            <li><strong>Tidak menghasilkan <i>routing loop</i>:</strong> Karena menggunakan <i>link-state database</i> dan algoritma <i>SPF</i>, <i>OSPF</i> secara matematis menjamin tidak adanya <i>routing loop</i> pada jaringan, berbeda dengan <i>distance vector</i> yang rentan terhadap <i>loop</i> jika tidak diterapkan mekanisme pencegahan seperti <i>split horizon</i> atau <i>poison reverse</i>.</li>
+            <li><strong>Mendukung penggunaan beberapa metrik sekaligus:</strong> <i>OSPF</i> menggunakan <i>cost</i> sebagai metrik, yang secara default didasarkan pada <i>bandwidth</i> <i>interface</i>. Namun, <i>administrator</i> dapat mengatur <i>cost</i> secara manual untuk memberikan preferensi terhadap jalur tertentu.</li>
+            <li><strong>Bisa menghasilkan banyak jalur ke tujuan (<i>load balancing</i>):</strong> <i>OSPF</i> mendukung <i>equal-cost multipath</i> (<i>ECMP</i>), di mana beberapa jalur dengan <i>cost</i> yang sama dapat digunakan secara bersamaan untuk mendistribusikan beban lalu lintas.</li>
+            <li><strong>Membagi jaringan besar menjadi beberapa <i>area</i>:</strong> Konsep <i>area</i> pada <i>OSPF</i> memungkinkan <i>administrator</i> untuk memecah jaringan besar menjadi bagian-bagian yang lebih kecil dan terkelola. Hal ini mengurangi beban perhitungan <i>SPF</i> pada setiap <i>router</i> dan mempercepat konvergensi.</li>
+            <li><strong>Waktu yang diperlukan untuk <i>konvergen</i> lebih cepat:</strong> Karena perubahan <i>topologi</i> segera di-<i>flood</i> ke seluruh jaringan dan setiap <i>router</i> menghitung ulang jalur secara independen, waktu konvergensi <i>OSPF</i> jauh lebih cepat dibandingkan <i>distance vector</i> tradisional.</li>
+        </ul>
+    </div>
+
+    <!-- ==================== 4. EIGRP ==================== -->
+    <div class="protocol-card">
+        <h3>4. <i>EIGRP</i> (<i>Enhanced Interior Gateway Routing Protocol</i>)</h3>
+
+        <p><i>EIGRP</i> adalah <i>protokol routing</i> canggih yang dikembangkan oleh <i>Cisco</i> sebagai penyempurna dari <i>IGRP</i>. <i>Protokol</i> ini menggunakan <i>algoritma advanced distance vector</i> yang sering disebut sebagai <i>hybrid routing protocol</i> karena menggabungkan keunggulan dari <i>distance vector</i> dan <i>link-state</i>. <i>EIGRP</i> sangat cocok untuk diterapkan pada jaringan komputer yang besar dan kompleks karena kemampuannya yang adaptif dan efisien.</p>
+
+        <p>Salah satu fitur unggulan <i>EIGRP</i> adalah kemampuannya dalam melakukan <strong><i>load balancing</i> dengan <i>cost</i> yang tidak sama (<i>unequal-cost load balancing</i>)</strong>. Artinya, <i>EIGRP</i> dapat mendistribusikan lalu lintas melalui beberapa jalur sekalipun metriknya berbeda, asalkan berada dalam batas <i>variance</i> yang ditentukan. Hal ini memberikan fleksibilitas tinggi dalam optimalisasi penggunaan <i>bandwidth</i> jaringan.</p>
+
+        <p>Algoritma yang digunakan oleh <i>EIGRP</i> adalah <i><strong>Diffusing Update Algorithm</strong></i> (<i><strong>DUAL</strong></i>). <i>DUAL</i> memastikan perhitungan jalur terpendek yang bebas <i>loop</i> (<i>loop-free</i>) dengan sangat cepat, karena <i>EIGRP</i> menyimpan informasi tentang jalur cadangan (<i>feasible successor</i>) di samping jalur utama (<i>successor</i>). Jika jalur utama gagal, <i>EIGRP</i> dapat langsung beralih ke jalur cadangan tanpa harus melakukan perhitungan ulang dari awal, sehingga konvergensi menjadi hampir instan.</p>
+
+        <p>Berbeda dengan <i>RIP</i> atau <i>IGRP</i> yang mengirimkan <i>update</i> secara periodik, <i>EIGRP</i> hanya mengirimkan <i>update</i> <i><strong>inkremental</strong></i> (hanya perubahan jaringan) dan hanya ketika terjadi perubahan <i>topologi</i>. <i>Broadcast-broadcast EIGRP</i> di-<i>update</i> setiap 90 detik ke semua <i>router EIGRP</i> yang berdekatan sebagai <i>keep-alive</i>, namun <i>update</i> tersebut tidak berisi seluruh <i>routing table</i>, melainkan hanya perubahan (<i>partial update</i>). Hal ini menjadikan <i>EIGRP</i> sangat hemat <i>bandwidth</i>.</p>
+
+        <p><i>IGRP</i> dan <i>EIGRP</i> sama-sama sudah mempertimbangkan masalah <i>bandwidth</i> yang tersedia dan <i>delay</i> yang terjadi pada jalur. Namun, <i>EIGRP</i> menawarkan peningkatan signifikan dalam hal kecepatan konvergensi, efisiensi, dan skalabilitas.</p>
+
+        <h4>Kelebihan <i>EIGRP</i></h4>
+        <ul>
+            <li><strong>Melakukan konvergensi secara tepat ketika menghindari <i>loop</i>:</strong> Berkat algoritma <i>DUAL</i>, <i>EIGRP</i> menjamin jalur yang dipilih bebas dari <i>routing loop</i> pada setiap saat, bahkan selama proses konvergensi berlangsung.</li>
+            <li><strong>Memerlukan lebih sedikit <i>memori</i> dan <i>proses</i>:</strong> Dibandingkan dengan <i>link-state</i> seperti <i>OSPF</i>, <i>EIGRP</i> tidak perlu menyimpan <i>link-state database</i> yang besar, sehingga kebutuhan sumber daya <i>router</i> relatif lebih rendah.</li>
+            <li><strong>Adanya fitur <i>“Loop Avoidance”</i>:</strong> <i>EIGRP</i> menggunakan mekanisme <i>Feasible Distance</i> (FD) dan <i>Reported Distance</i> (RD) untuk memastikan bahwa jalur cadangan yang dipilih benar-benar bebas <i>loop</i>, sehingga memberikan stabilitas tinggi.</li>
+        </ul>
+    </div>
+
+    <!-- ==================== 5. BGP ==================== -->
+    <div class="protocol-card">
+        <h3>5. <i>BGP</i> (<i>Border Gateway Protocol</i>)</h3>
+
+        <p><i>BGP</i> adalah <i>routing protocol</i> yang memiliki kemampuan untuk melakukan pengumpulan rute, pertukaran rute, dan penentuan rute terbaik menuju ke sebuah lokasi dalam sebuah jaringan. Yang membedakan <i>BGP</i> dengan <i>protokol routing</i> lain adalah bahwa <i>BGP</i> termasuk ke dalam kategori <i>routing protocol</i> jenis <i><strong>Exterior Gateway Protocol</strong></i> (<i><strong>EGP</strong></i>), sedangkan <i>RIP</i>, <i>IGRP</i>, <i>OSPF</i>, dan <i>EIGRP</i> termasuk dalam <i>Interior Gateway Protocol</i> (<i>IGP</i>). Dengan kata lain, <i>BGP</i> digunakan untuk <i>routing</i> antar <i>autonomous system</i> (AS), bukan di dalam satu AS.</p>
+
+        <p><i>BGP</i> merupakan <i>“distance vector exterior gateway protocol”</i> yang bekerja secara cerdas untuk merawat <i>path</i>-<i>path</i> menuju jaringan lainnya. Berbeda dengan <i>IGP</i> yang fokus pada kecepatan dan metrik teknis, <i>BGP</i> lebih berorientasi pada kebijakan (<i>policy-based routing</i>). <i>Administrator</i> dapat mengatur <i>BGP</i> untuk memilih jalur berdasarkan atribut seperti <i>AS Path</i> (panjang jalur AS), <i>Local Preference</i>, <i>Multi-Exit Discriminator</i> (<i>MED</i>), dan lain-lain.</p>
+
+        <p><i>Update</i> (pembaruan) pada <i>BGP</i> dikirim melalui koneksi <i><strong>TCP</strong></i> (biasanya menggunakan <i>port</i> 179), yang menjamin pengiriman data secara reliabel (terjamin sampai tujuan). Karena menggunakan <i>TCP</i>, <i>BGP</i> tidak perlu repot menangani mekanisme <i>retransmission</i> dan <i>acknowledgment</i> sendiri. <i>Protokol</i> ini biasa digunakan antara <i>ISP</i> (Penyedia Layanan Internet) dengan <i>ISP</i> lainnya, atau antara <i>ISP</i> dengan <i>client</i> perusahaan besar (<i>enterprise</i>). Dalam implementasinya, <i>protokol</i> ini digunakan untuk membuat rute dari trafik <i>internet</i> antar <i>autonomous system</i>, sehingga menjadi tulang punggung <i>internet</i> global.</p>
+
+        <h4>Kelebihan <i>BGP</i></h4>
+        <ul>
+            <li><strong>Sangat sederhana dalam proses instalasi:</strong> Meskipun konsep dan atributnya kompleks, konfigurasi dasar <i>BGP</i> (menetapkan <i>neighbor</i> dan <i>network</i> yang akan diumumkan) relatif mudah dilakukan. <i>BGP</i> juga dirancang untuk menangani ribuan rute (<i>prefix</i>) di <i>internet</i> tanpa kesulitan berarti.</li>
+            <li><strong>Kontrol kebijakan yang sangat fleksibel:</strong> <i>BGP</i> memungkinkan <i>administrator</i> untuk mengatur lalu lintas masuk dan keluar dengan tingkat presisi yang sangat tinggi, misalnya memprioritaskan jalur dari satu <i>ISP</i> dibandingkan <i>ISP</i> lain untuk tujuan efisiensi biaya atau kinerja.</li>
+            <li><strong><i>Scalability</i> tak terbatas:</strong> <i>BGP</i> mampu menangani <i>routing table</i> global yang saat ini berisi hampir satu juta <i>prefix</i>, menjadikannya satu-satunya pilihan untuk <i>routing</i> antar AS di <i>internet</i>.</li>
+        </ul>
+    </div>
+
+    <!-- ==================== PENUTUP ==================== -->
+    <hr>
+
+    <h2>Kesimpulan</h2>
+
+    <p>Kelima <i>protokol</i> di atas—<i>RIP</i>, <i>IGRP</i>, <i>OSPF</i>, <i>EIGRP</i>, dan <i>BGP</i>—masing-masing memiliki peran dan posisi strategis dalam dunia jaringan komputer. <i>RIP</i> cocok untuk jaringan kecil dengan <i>topologi</i> sederhana. <i>IGRP</i> dan <i>EIGRP</i> (produk <i>Cisco</i>) menawarkan kemudahan konfigurasi dan efisiensi untuk jaringan menengah hingga besar. <i>OSPF</i> menjadi pilihan utama untuk jaringan <i>multi-vendor</i> yang membutuhkan konvergensi cepat dan skalabilitas tinggi melalui konsep <i>area</i>. Sementara itu, <i>BGP</i> adalah <i>protokol</i> yang tak tergantikan untuk menghubungkan jaringan antar organisasi di tingkat <i>internet</i>. Pemilihan <i>protokol</i> yang tepat harus didasarkan pada analisis mendalam terhadap kebutuhan bisnis, ukuran jaringan, sumber daya yang tersedia, serta keahlian tim <i>administrator</i>.</p>
+
+    <hr>
+    <p class="footer">
+        <i>Dokumen materi – semua istilah asing dicetak miring. Tampilan responsif untuk handphone.</i>
+    </p>
+
+</div>
+</body>
+</html>
